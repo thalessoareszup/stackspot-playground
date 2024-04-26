@@ -1,0 +1,37 @@
+schema-version: v2
+kind: manifest
+spec:
+  type: app
+  plugins:
+    - name: local/kotlin-spring-application-base@0.0.1
+      alias: kotlin-spring-application-base-1712320764787
+      type: app
+      inputs: {}
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+    - name: local/kotlin-spring-web@0.0.1
+      alias: kotlin-spring-web-1712320786849
+      type: app
+      inputs: {}
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+  global-inputs:
+    project_name: testapp
+    project_description: Spring Boot Application
+    project_springboot_version: 3.0.5
+    project_group_id: com.stackspot
+    project_artifact_id: testapp
+    project_version: 0.0.1-SNAPSHOT
+    project_base_package: com.stackspot.testapp
+  global-computed-inputs:
+    "project_folder": com/stackspot/testapp
+    "project_name_capitalized": testapp
+    "project_main_class_name": testappApplication

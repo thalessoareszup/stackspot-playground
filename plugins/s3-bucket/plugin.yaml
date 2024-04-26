@@ -1,0 +1,39 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: s3-bucket
+  display-name: s3-bucket
+  description: Create a S3 bucket
+  version: 2.0.0
+  picture: plugin.png
+spec:
+  type: infra
+  compatibility:
+    - python
+  docs:
+    pt-br: docs/pt-br/docs.md
+  single-use: False
+  runtime:
+    environment:
+      - terraform-1-4
+      - aws-cli-2
+      - git-2
+  technologies: # Ref: https://docs.stackspot.com/create-use/create-content/yaml-files/plugin-yaml/#technologies-1
+    - Api
+  generates:
+    connections:
+      - type: aws-s3-conn
+        alias: bucket-conn
+        outputs:
+          - from: aws-s3-arn
+            to: arn
+          - from: aws-s3-bucket-name
+            to: bucket_name
+  stk-projects-only: false
+  inputs:
+    - label: Bucket name
+      name: name
+      type: text
+      required: true
+      pattern: "^[a-z]*(?:-[a-z]+)*$"
+      help: "Inform the bucket name"

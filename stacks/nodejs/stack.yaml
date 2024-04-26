@@ -1,0 +1,18 @@
+schema-version: v1
+kind: stack
+metadata:
+  name: nodejs
+  display-name: nodejs
+  description: Stack for writing node.js applications
+  version: 1.1.2
+spec:
+  docs:
+    pt-br: docs/pt_br/docs.md
+  plugins:
+    app:
+      - name: thales/nodejs-app@1.0.0
+    infra:
+      - name: thales/s3-bucket@2.0.0
+      - name: thales/rds-plugin@1.0.3
+  starters:
+    - path: starters/nodejs-api

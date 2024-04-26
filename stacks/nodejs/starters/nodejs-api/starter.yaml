@@ -1,0 +1,12 @@
+schema-version: v1
+kind: starter
+metadata:
+  name: nodejs-api
+  description: Starter for a Node.js API
+spec:
+  type: app
+  docs:
+    pt-br: docs/pt_br/docs.md
+  plugins:
+    required:
+      - name: thales/nodejs-app

@@ -1,0 +1,30 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: nodejs-app
+  display-name: nodejs-app
+  description: Scaffolds a Node.js application
+  version: 1.0.0
+  picture: plugin.png
+spec:
+  type: app
+  compatibility:
+    - python
+  docs:
+    pt-br: docs/pt-br/docs.md
+  single-use: False
+  technologies: # Ref: https://docs.stackspot.com/create-use/create-content/yaml-files/plugin-yaml/#technologies-1
+    - Api
+    - JavaScript
+  stk-projects-only: false
+  inputs:
+    - label: Application slug
+      name: app_slug
+      type: text
+      required: true
+      pattern: '^(?:(?:@(?:[a-z0-9-*~][a-z0-9-*._~]*)?/[a-z0-9-._~])|[a-z0-9-~])[a-z0-9-._~]*$'
+      help: 'Inform the application slug (e.g. app_name)'
+    
+
+
+# 

@@ -1,0 +1,45 @@
+schema-version: v2
+kind: manifest
+metadata:
+  name: mycoolapp
+  description: someaiopge
+  starter: cs-test/nodejs@0.0.2/nodejs-api
+  stack-version-id: 01HP4Y1P4E6R9G226VFWBAAW5Q
+  stack: nodejs@0.0.2
+spec:
+  type: app
+  app-id: 01HP4YZ96AJYDNC9GW3Y53ZEF6
+  plugins:
+    - name: cs-test/nodejs@0.0.2/nodejs-app@0.0.1
+      alias: nodejs-app-1707415859970
+      plugin-version-id: 01HP4X4CA5GKYR9VZTX73WA9E1
+      stack-version-id: 01HP4Y1P4E6R9G226VFWBAAW5Q
+      type: app
+      inputs:
+        app_slug: myapp
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+    - name: cs-test/nodejs@0.0.2/s3-bucket@1.0.0
+      alias: s3-bucket
+      plugin-version-id: 01HP4W9VGQ480YJ08GPFNH5D8Y
+      stack-version-id: 01HP4Y1P4E6R9G226VFWBAAW5Q
+      type: infra
+      inputs:
+        name: mybucketuhuuu
+        environment: development
+      inputs-envs: {}
+      connections:
+        generates:
+          - type: aws-s3-conn
+            selected: bucket-conn
+            alias: bucket-conn
+        requires: []
+      links:
+        generates: []
+  global-inputs: {}
+  global-computed-inputs: {}
+  repository: http://none.com

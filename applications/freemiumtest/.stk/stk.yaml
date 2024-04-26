@@ -1,0 +1,44 @@
+schema-version: v2
+kind: manifest
+metadata:
+  name: freemiumtest
+  description: oiuhfg
+  starter: playground/nodejs@1.0.0/nodejs-api
+  stack-version-id: 01HP7D429Y1M2TGPM89E6J5FVF
+  stack: nodejs@1.0.0
+spec:
+  type: app
+  app-id: 01HP7D84NTHZ6B4DYK4EBS54V4
+  plugins:
+    - name: playground/nodejs@1.0.0/nodejs-app@1.0.0
+      alias: nodejs-app-1707498219396
+      plugin-version-id: 01HP7CZE4ABSQDY75MFKRSEKS7
+      stack-version-id: 01HP7D429Y1M2TGPM89E6J5FVF
+      type: app
+      inputs:
+        app_slug: myapp
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+    - name: playground/nodejs@1.0.0/s3-bucket@2.0.0
+      alias: s3-bucket
+      plugin-version-id: 01HP7CZ17N81CQMFRD0XX9XWA2
+      stack-version-id: 01HP7D429Y1M2TGPM89E6J5FVF
+      type: infra
+      inputs:
+        name: myfreemiumbucket
+      inputs-envs: {}
+      connections:
+        generates:
+          - type: aws-s3-conn
+            selected: bucket-conn
+            alias: bucket-conn
+        requires: []
+      links:
+        generates: []
+  global-inputs: {}
+  global-computed-inputs: {}
+  repository: http://some.fake

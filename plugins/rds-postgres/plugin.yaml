@@ -1,0 +1,49 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: rds-plugin
+  display-name: rds-plugin
+  description: RDS plugin
+  version: 1.0.3
+spec:
+  type: infra
+  compatibility:
+    - python
+  docs:
+    pt-br: docs/pt-br/docs.md
+    en-us: docs/en-us/docs.md
+  single-use: False
+  runtime:
+    environment:
+      - terraform-1-4
+      - aws-cli-2
+      - git-2
+  technologies: # Ref: https://docs.stackspot.com/create-use/create-content/yaml-files/plugin-yaml/#technologies-1
+    - Api
+  generates:
+    connections:
+      - type: aws-rds-conn
+        alias: rds-conn
+        outputs:
+          - from: rds-conn-engine
+            to: engine
+          - from: rds-conn-engine_version
+            to: engine_version
+          - from: rds-conn-host
+            to: host
+          - from: rds-conn-name
+            to: name
+          - from: rds-conn-pass
+            to: pass
+          - from: rds-conn-port
+            to: port
+          - from: rds-conn-user
+            to: user
+  stk-projects-only: false
+  inputs:
+    - label: Database name
+      name: dbname
+      type: text
+      required: true
+      default: mypostgres
+      help: "Inform your database name"
